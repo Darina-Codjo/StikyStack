@@ -1,0 +1,64 @@
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+}
+
+
+.login-main-text{
+   /* margin-top: 20%;*/
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black {
+    background-color: #f4d529 !important;
+    color: #252a37!important;
+}
+
+.navbar-nav .nav-item .nav-link{
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: rgb(244,213,41);
+}
+/*.container {
+    height:500px;
+}
+
+.row{
+    height:500px;
+}
+
+.col{
+    height:500px;
+
+}*/
+footer .container {
+    height: 225px;
+}
+
+.col img{
+    width: 55px;
+    height:50px;
+    margin:25px;
+
+}
