@@ -5,7 +5,7 @@
 
 		public static function initConnexion(){
 			try {
-				$dns = "mysql:host=localhost;dbname=ter_db;charset=utf8";
+				$dns = "mysql:host=localhost;dbname=stikystack;charset=utf8";
 				$user = "root";
 				$password="";
 				self::$bdd = new PDO($dns,$user,$password);
