@@ -7,7 +7,7 @@
     <!-- ELEMENT DU MILIEU -->
         <br>
         <br>
-        <h1>BIENVENUE !</h1>
+        <h1> <?php echo 'Hello World !';?> </h1>
         <br>
         <br>
         <br>
