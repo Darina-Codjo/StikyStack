@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 DROP TABLE IF EXISTS `link`;
 CREATE TABLE IF NOT EXISTS `link` (
-`idLink` int,
+`idLink` int NOT NULL AUTO_INCREMENT,
 `idUser` int,
 `idNote`int,
 FOREIGN KEY (`idUser`) REFERENCES user(`idUser`),
