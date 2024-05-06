@@ -58,11 +58,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 DROP TABLE IF EXISTS 'link'
 CREATE TABLE IF NOT EXISTS 'link' (
+'idLink int,
 'idUser' int,
 'idNote'int,
 FOREIGN KEY (idUser) REFERENCES user(idUser),
 FOREIGN KEY (idNote) REFERENCES note(idNote),
-PRIMARY KEY (idUser, idNote)
+PRIMARY KEY (idLink),
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
