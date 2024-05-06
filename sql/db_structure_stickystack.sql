@@ -11,18 +11,18 @@ CREATE TABLE IF NOT EXISTS `note` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `idUser` int NOT NULL AUTO_INCREMENT,
-  `fullName` varchar(20) NOT NULL,
+CREATE TABLE `user` (
+  `idUser` int(11) NOT NULL,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
   `userName` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `creationDate` datetime(6) NOT NULL,
   `updateDate` datetime(6) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`idUser`)
+  `password` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
