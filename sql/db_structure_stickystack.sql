@@ -49,6 +49,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `notes` enum('','','','','','','','','','','','','','','','','','','','') DEFAULT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table 'link'
+--
+
+DROP TABLE IF EXISTS 'link'
+CREATE TABLE IF NOT EXISTS 'link' (
+'idUser' int,
+'idNote'int,
+FOREIGN KEY (idUser) REFERENCES user(idUser),
+FOREIGN KEY (idNote) REFERENCES note(idNote),
+PRIMARY KEY (idUser, idNote)
+) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
