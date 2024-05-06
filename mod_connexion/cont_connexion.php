@@ -32,7 +32,6 @@ if(!defined('CONST_INCLUDE'))
 	        		$_SESSION['nomUtilisateur']=$tab['nomUtilisateur'];
 					$_SESSION['password']=$tab['password'];
                     $_SESSION['email']=$tab['email'];
-                    $_SESSION['role']=$tab['role'];
                     header('Location:index.php');
 			}	
 			else {
