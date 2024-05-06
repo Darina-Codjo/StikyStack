@@ -1,3 +1,3 @@
-INSERT INTO user_note (idUser, idNote)
+INSERT INTO link (idUser, idNote)
 VALUES ([ID_UTILISATEUR_DESTINATAIRE], [ID_NOTE_A_PARTAGER]);
 
