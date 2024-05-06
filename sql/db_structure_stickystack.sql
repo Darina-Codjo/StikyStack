@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS `note` (
   `content` varchar(500) NOT NULL,
   `creationDate` datetime(6) NOT NULL,
   `updateDate` datetime(6) NOT NULL,
-  `sharedWith` enum('','','','','','','','','','') NOT NULL,
   PRIMARY KEY (`idNote`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -46,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `creationDate` datetime(6) NOT NULL,
   `updateDate` datetime(6) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `notes` enum('','','','','','','','','','','','','','','','','','','','') DEFAULT NULL,
   PRIMARY KEY (`idUser`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
