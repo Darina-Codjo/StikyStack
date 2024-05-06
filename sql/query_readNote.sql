@@ -5,4 +5,4 @@ WHERE idNote IN (
     FROM link
     WHERE idUser = [ID_UTILISATEUR]
 )
-AND title = [TITLE_WEBSITE];
+AND title = [TITLE_NOTE];
