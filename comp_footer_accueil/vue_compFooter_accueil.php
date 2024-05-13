@@ -21,7 +21,7 @@ class VueFooterAccueil {
 					<h1 class="text-capitalize font-weight-light p-3 " style="background-color: rgb(249, 176, 172)"></h1>
 				</div>
 			</div>
-			<p class="text-center">Copyright - All write reserved to © Stiky'Stack Inc 2024</p>
+			<p class="text-center">Copyright - All write reserved to © Stiky'Stack Inc. 2024</p>
 		</div>
 	</footer>
 		

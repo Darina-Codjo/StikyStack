@@ -21,16 +21,17 @@ class VueNav {
             </a>
                 <?php
                 if(isset($_SESSION['userName'])){
+                    echo "CONECTEEEEEEE";
                     ?>                        
                     <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=main&action=postit">My Post'it</a>
+                            <a class="nav-link" href="index.php?module=profil&action=postit">My Post'it</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=profil&action=afficher_profil">My Account</a>
+                            <a class="nav-link" href="index.php?module=profil&action=profil_page">My Account</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Sing Out</a>
+                            <a class="nav-link" href="index.php?module=connexion&action=logOut">Sing Out</a>
                         </li>
                     </ul>
                     <?php
@@ -39,10 +40,10 @@ class VueNav {
                     ?>                        
                     <ul class="navbar-nav ml-md-auto" style="margin-right: 20px;">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Sign Up</a>
+                            <a class="nav-link" href="index.php?module=connexion&action=form_signIn">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=form_connexion"><NOBR>Log In</NOBR></a>
+                            <a class="nav-link" href="index.php?module=connexion&action=form_logIn"><NOBR>Log In</NOBR></a>
                         </li>
                     </ul>
                     <?php

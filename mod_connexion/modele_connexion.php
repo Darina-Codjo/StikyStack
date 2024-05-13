@@ -28,7 +28,7 @@ if(!defined('CONST_INCLUDE'))
 
                 if(!empty($requete->fetch())){
                     echo "<p class=\"text-center mt-3\"><strong>This user already exists</strong></p>";
-                    $this->vue->form_inscription();
+                    $this->vue->form_signIn();
                 }
                 else{
                     //Insertion
@@ -40,7 +40,7 @@ if(!defined('CONST_INCLUDE'))
             }
             else {
                 echo "<p class=\"text-center mt-3\"><strong>User name too long <strong></p>";
-                $this->vue->form_inscription();
+                $this->vue->form_signIn();
             }
         }
 
@@ -56,13 +56,13 @@ if(!defined('CONST_INCLUDE'))
             }
         }
 
-        function deconnexion(){
+        function logOut(){
             $_SESSION = array();
             session_destroy();
             header('Location:index.php');
         }
 
-        function erreur404(){
+        function error404(){
             require_once('404NotFoundPage.php');
         }
     }

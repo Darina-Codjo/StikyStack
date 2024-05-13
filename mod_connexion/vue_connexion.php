@@ -14,7 +14,7 @@ if(!defined('CONST_INCLUDE'))
             parent::__construct();
 		}
 
-		function form_connexion(){
+		function form_logIn(){
 			?>
             <div class="container">
                 <div class="row">
@@ -42,7 +42,7 @@ if(!defined('CONST_INCLUDE'))
 			<?php
 		}
 
-		function form_inscription(){
+		function form_signIn(){
 			?>
 			<div class="container">
 				<div class="row">
@@ -76,7 +76,7 @@ if(!defined('CONST_INCLUDE'))
 			<?php
 		}
 
-		function erreur404($error){
+		function error404($error){
 			echo $error;
 		}
 	}

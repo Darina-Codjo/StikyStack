@@ -20,8 +20,8 @@ if(!defined('CONST_INCLUDE'))
 			$this->modele = new ModeleConnexion();
 		}
 
-		function form_connexion(){
-			$this->vue->form_connexion();
+		function form_logIn(){
+			$this->vue->form_logIn();
 		}
 
 		function connexion(){
@@ -33,21 +33,21 @@ if(!defined('CONST_INCLUDE'))
 				$_SESSION['lastName']=$tab['lastName'];
 				$_SESSION['userName']=$tab['userName'];
 				$_SESSION['passwrd']=$tab['passwrd'];
-				header('Location:index.php/profil');
+				header('Location:index.php');
 			}	
 			else {
                 echo "<p class=\"text-center mt-3\"><strong>Mauvais identifiant ou mot de passe !</strong></p>";
-                $this->vue->form_connexion();
+                $this->vue->form_logIn();
             }
 		}
 
-		function form_inscription(){
-			$this->vue->form_inscription();
+		function form_signIn(){
+			$this->vue->form_signIn();
 		}
 
 		function inscription(){
 			$this->modele->inscription($this->recupererIdMdpPseudo());
-            header('Location:index.php/profil');
+            header('Location:index.php');
 		}
 
 		function recupererIdMdpPseudo(){
@@ -60,13 +60,13 @@ if(!defined('CONST_INCLUDE'))
 			return $tab;
 		}
 
-		function deconnexion(){
-			$this->modele->deconnexion();
+		function logOut(){
+			$this->modele->logOut();
 		}
 
-		function erreur404(){
-			$error = $this->modele->erreur404();
-			$this->vue->erreur404($error);
+		function error404(){
+			$error = $this->modele->error404();
+			$this->vue->error404($error);
 		}
 		function getVue(){
 			return $this->vue;

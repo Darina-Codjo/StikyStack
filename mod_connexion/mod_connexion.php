@@ -24,8 +24,8 @@ if(!defined('CONST_INCLUDE'))
 
 			switch($action){
 
-				case "form_connexion":
-					$this->controleur->form_connexion();
+				case "form_logIn":
+					$this->controleur->form_logIn();
 					break;
 
 				case "connexion":
@@ -38,12 +38,12 @@ if(!defined('CONST_INCLUDE'))
 					}
 					break;
 				
-				case "deconnexion":
-					$this->controleur->deconnexion();
+				case "logOut":
+					$this->controleur->logOut();
 					break;
 				
-				case "form_inscription":
-					$this->controleur->form_inscription();
+				case "form_signIn":
+					$this->controleur->form_signIn();
 					break;
 
 				case "inscription":
@@ -51,7 +51,7 @@ if(!defined('CONST_INCLUDE'))
 					break;
 
 				default:
-					$this->controleur->erreur404(); 
+					$this->controleur->error404(); 
 					break;
 			}
 		}

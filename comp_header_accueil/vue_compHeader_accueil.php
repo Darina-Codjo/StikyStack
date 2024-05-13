@@ -23,6 +23,7 @@ class VueHeaderAccueil {
         <nav class="navbar navbar-expand-md navbar-light bg-light" >
             <?php
             if(isset($_SESSION['userName'])){
+                echo "CONECTEEEEEEE";
                 ?>
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0" style="margin-right: 10px;">
                     
@@ -32,10 +33,10 @@ class VueHeaderAccueil {
                         <a class="nav-link" href="index.php?module=postit">Post'it</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?module=profil&action=afficher_profil">My account</a>
+                        <a class="nav-link" href="index.php?module=profil&action=profil_page">My account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?module=connexion&action=deconnexion">Log Out</a>
+                        <a class="nav-link" href="index.php?module=connexion&action=logOut">Log Out</a>
                     </li>
                 </ul>
                 <?php
@@ -44,10 +45,10 @@ class VueHeaderAccueil {
                 ?>
                 <ul class="navbar-nav ml-md-auto" style="margin-right: 10px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Sign Up</a>
+                        <a class="nav-link" href="index.php?module=connexion&action=form_signIn">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?module=connexion&action=form_connexion"><NOBR>Log In</NOBR></a>
+                        <a class="nav-link" href="index.php?module=connexion&action=form_logIn"><NOBR>Log In</NOBR></a>
                     </li>
                 </ul>
                 <?php

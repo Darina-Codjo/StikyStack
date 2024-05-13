@@ -22,12 +22,12 @@ if(!defined('CONST_INCLUDE'))
 			}
 
 			switch($action){
-                case "afficher_profil":
-                    $this->controleur->afficher_profil();
+                case "profil_page":
+                    $this->controleur->profil_page();
                     break;
 
 				default:
-					$this->controleur->erreur404(); 
+					$this->controleur->error404(); 
 					break;
 			}
 		}

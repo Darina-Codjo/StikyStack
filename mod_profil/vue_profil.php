@@ -12,11 +12,11 @@ if(!defined('CONST_INCLUDE'))
 			parent::__construct();
 		}
 
-		function afficher_profil(){?>
+		function profil_page(){?>
 			<div class="container" >
 				<div class="card" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: #252a37; padding: 50px; text-align: center; color: white; border-radius: 30px;">
 					<div class="pp">
-						<div class="circle"><img src="images/ajoutez_pp.png" id="photo" ></div>
+						<div class="circle"><img src="./images/ajoutez_pp.png" id="photo" ></div>
 					</div>
 					<div class="upload">
 						<input type="file" id="file">
@@ -35,7 +35,7 @@ if(!defined('CONST_INCLUDE'))
 			<?php
 
 		}
-		function erreur404($error){
+		function error404($error){
 			echo $error;
 		}
 	}

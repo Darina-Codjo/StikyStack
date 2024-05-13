@@ -17,13 +17,13 @@ if(!defined('CONST_INCLUDE'))
 			$this->modele = new ModeleProfil();
 		}
 
-        function afficher_profil(){
-            $this->vue->afficher_profil();
+        function profil_page(){
+            $this->vue->profil_page();
         }
 
-		function erreur404(){
-			$error = $this->modele->erreur404();
-			$this->vue->erreur404($error);
+		function error404(){
+			$error = $this->modele->error404();
+			$this->vue->error404($error);
 		}
 		
 		function getVue(){

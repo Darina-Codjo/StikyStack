@@ -12,7 +12,7 @@ if(!defined('CONST_INCLUDE'))
 
 		}
 
-		function erreur404(){
+		function error404(){
             require_once('404NotFoundPage.php');
         }
 
