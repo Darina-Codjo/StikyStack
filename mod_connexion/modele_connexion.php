@@ -19,12 +19,12 @@ if(!defined('CONST_INCLUDE'))
             
             $firstName=$tab['firstName'];
             $lastName=$tab['lastName'];
-            $userName=$tab['userName'];
+            $email=$tab['email'];
             $passwrd=$tab['passwrd'];
 
-            if(strlen($userName) <= 255 && strlen($firstName) <= 255 && strlen($lastName) <= 255 && strlen($passwrd) <= 255) {
-                $requete=self::$bdd->prepare("SELECT userName FROM user where userName=? ;");
-                $requete->execute(array($userName));
+            if(strlen($email) <= 255 && strlen($firstName) <= 255 && strlen($lastName) <= 255 && strlen($passwrd) <= 255) {
+                $requete=self::$bdd->prepare("SELECT email FROM user where email=? ;");
+                $requete->execute(array($email));
 
                 if(!empty($requete->fetch())){
                     echo "<p class=\"text-center mt-3\"><strong>This user already exists</strong></p>";
@@ -32,9 +32,8 @@ if(!defined('CONST_INCLUDE'))
                 }
                 else{
                     //Insertion
-                    echo("INSERT");
-                    $req=self::$bdd->prepare("INSERT INTO user(firstName,lastName,userName,passwrd) VALUES(?,?,?,?);");
-                    $req->execute(array($firstName,$lastName,$userName,$passwrd));
+                    $req=self::$bdd->prepare("INSERT INTO user(firstName,lastName,birthDate,email,passwrd) VALUES(?,?,?,?,?);");
+                    $req->execute(array($firstName,$lastName,$birthDate,$email,$passwrd));
                     
                 }
             }
@@ -45,10 +44,10 @@ if(!defined('CONST_INCLUDE'))
         }
 
         function connexion(){
-            $userName = $_POST['userName'];
+            $email = $_POST['email'];
             try {
-                $selectprep = self::$bdd->prepare("SELECT userName, passwrd FROM user WHERE userName=?;");
-                $selectprep->execute(array($userName));
+                $selectprep = self::$bdd->prepare("SELECT email, passwrd FROM user WHERE email=?;");
+                $selectprep->execute(array($email));
                 $resultat = $selectprep->fetch();
                 return $resultat;
             } catch (PDOexception $e) {

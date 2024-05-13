@@ -22,8 +22,27 @@ class VueHeaderAccueil {
 
         <nav class="navbar navbar-expand-md navbar-light bg-light" >
             <?php
-            if(isset($_SESSION['userName'])){
-                echo "CONECTEEEEEEE";
+            if(isset($_SESSION['email'])){
+
+                    switch (connection_status()){
+                        case CONNECTION_NORMAL:
+                            $txt = 'Connection is in a normal state';
+                            break;
+                            
+                        case CONNECTION_ABORTED:
+                            $txt = 'Connection aborted';
+                            break;
+                        case CONNECTION_TIMEOUT:
+                            $txt = 'Connection timed out';
+                            break;
+                        case (CONNECTION_ABORTED & CONNECTION_TIMEOUT):
+                            $txt = 'Connection aborted and timed out';
+                            break;
+                        default:
+                            $txt = 'Unknown';
+                            break;
+                    }
+                    echo $txt;
                 ?>
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0" style="margin-right: 10px;">
                     
