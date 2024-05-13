@@ -29,7 +29,7 @@ if(!defined('CONST_INCLUDE'))
 					break;
 
 				case "connexion":
-					if(isset($_SESSION['password'])){
+					if(isset($_SESSION['passwrd'])){
 						echo "Vous etes déjà connecté";
                         header('Location:index.php');
 					}

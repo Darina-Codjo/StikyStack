@@ -26,13 +26,14 @@ if(!defined('CONST_INCLUDE'))
 
 		function connexion(){
 			$tab=$this->modele->connexion();
-			$isPasswordCorrect=password_verify($_POST['password'],$tab['password']);
+			$isPasswordCorrect=password_verify($_POST['passwrd'],$tab['passwrd']);
 
 	        if($isPasswordCorrect){
-	        		$_SESSION['nomUtilisateur']=$tab['nomUtilisateur'];
-					$_SESSION['password']=$tab['password'];
-                    $_SESSION['email']=$tab['email'];
-                    header('Location:index.php');
+				$_SESSION['firstName']=$tab['firstName'];
+				$_SESSION['lastName']=$tab['lastName'];
+				$_SESSION['userName']=$tab['userName'];
+				$_SESSION['passwrd']=$tab['passwrd'];
+				header('Location:index.php/profil');
 			}	
 			else {
                 echo "<p class=\"text-center mt-3\"><strong>Mauvais identifiant ou mot de passe !</strong></p>";
@@ -45,17 +46,17 @@ if(!defined('CONST_INCLUDE'))
 		}
 
 		function inscription(){
-			$this->modele->inscription($this->recupererIdMdpEmail());
-            header('Location:index.php');
+			$this->modele->inscription($this->recupererIdMdpPseudo());
+            header('Location:index.php/profil');
 		}
 
-		function recupererIdMdpEmail(){
+		function recupererIdMdpPseudo(){
+			$firstName=$_POST['firstName'];
+			$lastName=$_POST['lastName'];
+			$userName=$_POST['userName'];
+			$pass_hash=password_hash($_POST['passwrd'],PASSWORD_DEFAULT);
 
-			$identifiant=$_POST['nomUtilisateur'];
-			$pass_hash=password_hash($_POST['password'],PASSWORD_DEFAULT);
-			$email=$_POST['email'];
-
-			$tab=array("nomUtilisateur"=>$identifiant, "password" =>$pass_hash,"email"=>$email);
+			$tab=array('firstName'=>$firstName,'lastName'=>$lastName,'userName'=>$userName,'passwrd'=>$pass_hash);
 			return $tab;
 		}
 

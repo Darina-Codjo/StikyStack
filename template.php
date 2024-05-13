@@ -29,10 +29,10 @@
         }
     }
     if(isset($aside)){
-        echo  $aside->afficherAsideArticle();
+        
     }
     if(isset($form)){
-        echo $form->afficherFormArticle();
+       
     }
 ?>
 

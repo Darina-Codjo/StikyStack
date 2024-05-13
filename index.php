@@ -5,7 +5,7 @@ define('CONST_INCLUDE', NULL);
 
 <?php
 
-    require_once "connexion.php";
+    require_once "connexionDB.php";
     Connexion::initConnexion();
 
     $module = isset($_GET['module']) ? $_GET['module']: "accueil";
@@ -22,7 +22,7 @@ define('CONST_INCLUDE', NULL);
             $footer=new ComposantFooter();
             break;
             
-        case 'accueil':
+        case "accueil":
             $title="Accueil";
             $css="./css/style.css";
             include "./comp_header_accueil/comp_header_accueil.php";
@@ -32,8 +32,31 @@ define('CONST_INCLUDE', NULL);
             $footer=new ComposantFooterAccueil();
             break;
         
+        case "profil":
+            $title="My Account";
+            $css="./css/styleProfile.css";
+            include "./comp_nav/comp_nav.php";
+            $nav = new ComposantNav();
+            include "./mod_profil/mod_profil.php";
+            $module=new ModProfil();
+            $js="./js/monProfil.js";
+            include "./comp_footer/comp_footer.php";
+            $footer=new ComposantFooter();
+            break;
+
+        case "postit":
+            $title="Post'it";
+            $css="";
+            include "./comp_nav/comp_nav.php";
+            $nav = new ComposantNav();
+            include "./comp_footer/comp_footer.php";
+            $footer=new ComposantFooter();
+            break;
+
             default :
                 die ("Interdiction d'accès à ce module");
+
+                
     }
         
     require("template.php");

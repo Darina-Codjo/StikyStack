@@ -14,14 +14,14 @@ class VueFooterAccueil {
 	}
 
 	public function afficherFooterAccueil() { ?>
-		<footer style="background-color:rgb(37,42,55);">
+		<footer style="background-color: rgb(249, 176, 172)">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<h1 class="text-capitalize font-weight-light p-3 " style="color: rgb(244,213,41);"> Suivez-nous!</h1>
+					<h1 class="text-capitalize font-weight-light p-3 " style="background-color: rgb(249, 176, 172)"></h1>
 				</div>
 			</div>
-			<p class="text-center">Copyright - Tous droits réservé à </p>
+			<p class="text-center">Copyright - All write reserved to © Stiky'Stack Inc 2024</p>
 		</div>
 	</footer>
 		

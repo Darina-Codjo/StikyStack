@@ -4,4 +4,4 @@ class ModeleFooter {
 	public function __construct(){ 
 
 	}
-} , 
+}
