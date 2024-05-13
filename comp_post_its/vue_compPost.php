@@ -90,7 +90,7 @@ $fnameUser = $_SESSION['first_name'];
 
         a {
             padding: 5px 10px;
-            background-color: #0000FF;
+            background-color: #00008B;
             color: white;
             text-decoration: none;
             border-radius: 5px;
