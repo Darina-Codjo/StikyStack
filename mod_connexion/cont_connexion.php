@@ -29,9 +29,7 @@ if(!defined('CONST_INCLUDE'))
 			$isPasswordCorrect=password_verify($_POST['passwrd'],$tab['passwrd']);
 
 	        if($isPasswordCorrect){
-				$_SESSION['firstName']=$tab['firstName'];
-				$_SESSION['lastName']=$tab['lastName'];
-				$_SESSION['userName']=$tab['userName'];
+				$_SESSION['email']=$tab['email'];
 				$_SESSION['passwrd']=$tab['passwrd'];
 				header('Location:index.php');
 			}	
@@ -53,11 +51,19 @@ if(!defined('CONST_INCLUDE'))
 		function recupererIdMdpPseudo(){
 			$firstName=$_POST['firstName'];
 			$lastName=$_POST['lastName'];
-			$userName=$_POST['userName'];
+			$email=$_POST['email'];
+			$birthDate=$_POST['birthDate'];
 			$pass_hash=password_hash($_POST['passwrd'],PASSWORD_DEFAULT);
+			$pass_hash_confirm=password_hash($_POST['passwrd_confirm'],PASSWORD_DEFAULT);
 
-			$tab=array('firstName'=>$firstName,'lastName'=>$lastName,'userName'=>$userName,'passwrd'=>$pass_hash);
-			return $tab;
+			if(isset($pass_hash) && isset($pass_hash_confirm) && $pass_hash==$pass_hash_confirm){	
+				$tab=array('firstName'=>$firstName,'lastName'=>$lastName,'email'=>$email,'passwrd'=>$pass_hash);
+				return $tab;
+			}else {
+				$this->modele->inscription($this->recupererIdMdpPseudo());
+            header('Location:index.php');
+			}
+
 		}
 
 		function logOut(){

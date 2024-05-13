@@ -28,12 +28,6 @@
             echo $module->getControleur()->getVue()->getAffichage();
         }
     }
-    if(isset($aside)){
-        
-    }
-    if(isset($form)){
-       
-    }
 ?>
 
 <?php
