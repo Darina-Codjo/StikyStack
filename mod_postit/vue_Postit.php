@@ -15,6 +15,7 @@ if(!defined('CONST_INCLUDE'))
 		function postit_page(){
 			?>
 			<h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['firstName']); ?>!</h1>
+			<div class="main-container">	
 			<div class="post-it-section">
 				<h2>Mes Post-its</h2>
 				<button class="add-button" onclick="openForm()">Ajouter Post-its</button>
@@ -24,7 +25,7 @@ if(!defined('CONST_INCLUDE'))
 				<h2>Post-its partagés</h2>
 				<div class="post-it-display" id="postItsPartages"></div>
 			</div>
-
+			</div>
 
 			<div class="form-popup" id="myForm">
 				<form class="form-container" action="submit_postit.php" method="post">
