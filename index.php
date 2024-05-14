@@ -15,7 +15,7 @@ define('CONST_INCLUDE', NULL);
             $title="Connexion/Inscription";
             $css="./css/style_set_connexion.css";
             include "./comp_nav/comp_nav.php";
-            $nav = new ComposantNav();
+            $nav= new ComposantNav();
             include "./mod_connexion/mod_connexion.php";
             $module= new ModConnexion();
             include "./comp_footer/comp_footer.php";

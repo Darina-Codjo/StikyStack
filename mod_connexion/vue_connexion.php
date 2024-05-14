@@ -5,7 +5,6 @@ if(!defined('CONST_INCLUDE'))
 
 <?php
 
-	
 	include_once'vue_generique.php';
 	
 	class VueConnexion extends VueGenerique {
@@ -14,11 +13,11 @@ if(!defined('CONST_INCLUDE'))
             parent::__construct();
 		}
 
-		function form_logIn(){
+		function form_connexion(){
 			?>
             <div class="container">
                 <div class="row">
-				<form action="index.php?module=connexion&action=inscription" method="post" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: rgb(109,109,109); padding: 50px; text-align: center; color: white; border-radius: 30px;">					    
+				<form action="index.php?module=connexion&action=connexion" method="post" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: rgb(109,109,109); padding: 50px; text-align: center; color: white; border-radius: 30px;">					    
 					<h2>Log In</h2>
 					<br>
 					<div class="col-lg-8 me-auto mx-auto">
@@ -43,7 +42,7 @@ if(!defined('CONST_INCLUDE'))
 			<?php
 		}
 
-		function form_signIn(){
+		function form_inscription(){
 			?>
 			<div class="container">
 				<div class="row">

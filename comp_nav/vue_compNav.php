@@ -20,26 +20,8 @@ class VueNav {
                 <img src="./images/logo.png" alt="logo" style="width: 80px; height: 80px";/>
             </a>
                 <?php
+                //<!-- connection_status -->
                 if(isset($_SESSION['email'])){
-                    
-                    switch (connection_status()){
-                        case CONNECTION_NORMAL:
-                            $txt = 'Connection is in a normal state';
-                            break;
-                        case CONNECTION_ABORTED:
-                            $txt = 'Connection aborted';
-                            break;
-                        case CONNECTION_TIMEOUT:
-                            $txt = 'Connection timed out';
-                            break;
-                        case (CONNECTION_ABORTED & CONNECTION_TIMEOUT):
-                            $txt = 'Connection aborted and timed out';
-                            break;
-                        default:
-                            $txt = 'Unknown';
-                            break;
-                    }
-                    echo $txt;
                     ?>                        
                     <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item">
@@ -58,10 +40,10 @@ class VueNav {
                     ?>                        
                     <ul class="navbar-nav ml-md-auto" style="margin-right: 20px;">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=form_signIn">Sign Up</a>
+                            <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=form_logIn"><NOBR>Log In</NOBR></a>
+                            <a class="nav-link" href="index.php?module=connexion&action=form_connexion"><NOBR>Log In</NOBR></a>
                         </li>
                     </ul>
                     <?php

@@ -24,25 +24,7 @@ class VueHeaderAccueil {
             <?php
             if(isset($_SESSION['email'])){
 
-                    switch (connection_status()){
-                        case CONNECTION_NORMAL:
-                            $txt = 'Connection is in a normal state';
-                            break;
-                            
-                        case CONNECTION_ABORTED:
-                            $txt = 'Connection aborted';
-                            break;
-                        case CONNECTION_TIMEOUT:
-                            $txt = 'Connection timed out';
-                            break;
-                        case (CONNECTION_ABORTED & CONNECTION_TIMEOUT):
-                            $txt = 'Connection aborted and timed out';
-                            break;
-                        default:
-                            $txt = 'Unknown';
-                            break;
-                    }
-                    echo $txt;
+                    //<!-- connection_status -->
                 ?>
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0" style="margin-right: 10px;">
                     
@@ -64,10 +46,10 @@ class VueHeaderAccueil {
                 ?>
                 <ul class="navbar-nav ml-md-auto" style="margin-right: 10px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?module=connexion&action=form_signIn">Sign Up</a>
+                        <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?module=connexion&action=form_logIn"><NOBR>Log In</NOBR></a>
+                        <a class="nav-link" href="index.php?module=connexion&action=form_connexion"><NOBR>Log In</NOBR></a>
                     </li>
                 </ul>
                 <?php
