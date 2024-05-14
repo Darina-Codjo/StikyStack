@@ -5,6 +5,7 @@ if(!defined('CONST_INCLUDE'))
 
 <?php
 	include_once'connexionDB.php';
+	include_once'./css/404NotFound_style.css';
 
 	class ModelePostit extends Connexion{
 

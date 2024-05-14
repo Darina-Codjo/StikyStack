@@ -24,7 +24,7 @@ define('CONST_INCLUDE', NULL);
             
         case "accueil":
             $title="Accueil";
-            $css="./css/style.css";
+            $css="./css/styleAccueil.css";
             include "./comp_header_accueil/comp_header_accueil.php";
             $nav = new ComposantHeaderAccueil();
             require './accueil.php';
