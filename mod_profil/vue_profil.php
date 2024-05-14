@@ -12,7 +12,8 @@ if(!defined('CONST_INCLUDE'))
 			parent::__construct();
 		}
 
-		function profil_page(){?>
+		function profil_page(){
+			?>
 			<div class="container" >
 				<div class="card" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: #252a37; padding: 50px; text-align: center; color: white; border-radius: 30px;">
 					<div class="pp">

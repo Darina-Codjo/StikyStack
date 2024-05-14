@@ -68,4 +68,60 @@ if(!defined('CONST_INCLUDE'))
             require_once('404NotFoundPage.php');
         }
     }
+    
 ?>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.querySelector('form[action="index.php?module=connexion&action=inscription"]');
+
+    form.addEventListener("submit", function(event) {
+        var isValid = true;
+        var errorMessages = [];
+
+        var firstName = form.querySelector('[name="firstName"]').value.trim();
+        var lastName = form.querySelector('[name="lastName"]').value.trim();
+        var birthDate = form.querySelector('[name="birthDate"]').value.trim();
+        var email = form.querySelector('[name="email"]').value.trim();
+        var password = form.querySelector('[name="passwrd"]').value;
+        var confirmPassword = form.querySelector('[name="passwrd_confirm"]').value;
+
+        // Vérification que tous les champs sont remplis
+        if (!firstName || !lastName || !birthDate || !email || !password || !confirmPassword) {
+            errorMessages.push("tous les champs soivent etre saisis.");
+            isValid = false;
+        }
+
+        // Validation de l'email
+        if (!email.match(/^\S+@\S+\.\S+$/)) {
+            errorMessages.push("L'email saisi n'est pas valide.");
+            form.querySelector('[name="email"]').style.backgroundColor = "red";
+            isValid = false;
+        } else {
+            form.querySelector('[name="email"]').style.backgroundColor = "";
+        }
+
+        // Vérification des mdp :
+        if (password !== confirmPassword) {
+            errorMessages.push("les deux mots de passe ne se correspondent pas !.");
+            form.querySelector('[name="passwrd"]').style.backgroundColor = "red";
+            form.querySelector('[name="passwrd_confirm"]').style.backgroundColor = "red";
+            isValid = false;
+        } else {
+            form.querySelector('[name="passwrd"]').style.backgroundColor = "";
+            form.querySelector('[name="passwrd_confirm"]').style.backgroundColor = "";
+            if (password.length < 6) {
+                errorMessages.push("Le mot de passe doit contenir plus de 6 caractères.");
+                form.querySelector('[name="passwrd"]').style.backgroundColor = "red";
+                isValid = false;
+            }
+        }
+
+        // Si le formulaire n'est pas valide, afficher les erreurs
+        if (!isValid) {
+            event.preventDefault();
+            alert(errorMessages.join("\n"));
+        }
+    });
+});
+</script>
+
