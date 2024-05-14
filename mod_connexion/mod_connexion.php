@@ -24,12 +24,14 @@ if(!defined('CONST_INCLUDE'))
 
 			switch($action){
 
-				case "form_logIn":
-					$this->controleur->form_logIn();
+				case "form_connexion":
+					$this->controleur->form_connexion();
 					break;
 
 				case "connexion":
-					if(isset($_SESSION['passwrd'])){
+					if(isset($_SESSION['email'])){
+						//<!-- connection_status -->
+
 						echo "Vous etes déjà connecté";
                         header('Location:index.php');
 					}
@@ -42,8 +44,8 @@ if(!defined('CONST_INCLUDE'))
 					$this->controleur->logOut();
 					break;
 				
-				case "form_signIn":
-					$this->controleur->form_signIn();
+				case "form_inscription":
+					$this->controleur->form_inscription();
 					break;
 
 				case "inscription":

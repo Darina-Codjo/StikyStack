@@ -15,13 +15,13 @@ class VueNav {
 
 	public function afficherNav() { 
         ?>
-        <nav class="navbar navbar-expand-md navbar-light" style="background-color: rgb(249, 176, 172)";>
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: rgb(184, 184, 184)";>
             <a href="index.php" class="navbar-brand px-50">
                 <img src="./images/logo.png" alt="logo" style="width: 80px; height: 80px";/>
             </a>
                 <?php
-                if(isset($_SESSION['userName'])){
-                    echo "CONECTEEEEEEE";
+                //<!-- connection_status -->
+                if(isset($_SESSION['email'])){
                     ?>                        
                     <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item">
@@ -40,10 +40,10 @@ class VueNav {
                     ?>                        
                     <ul class="navbar-nav ml-md-auto" style="margin-right: 20px;">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=form_signIn">Sign Up</a>
+                            <a class="nav-link" href="index.php?module=connexion&action=form_inscription">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=connexion&action=form_logIn"><NOBR>Log In</NOBR></a>
+                            <a class="nav-link" href="index.php?module=connexion&action=form_connexion"><NOBR>Log In</NOBR></a>
                         </li>
                     </ul>
                     <?php

@@ -20,8 +20,8 @@ if(!defined('CONST_INCLUDE'))
 			$this->modele = new ModeleConnexion();
 		}
 
-		function form_logIn(){
-			$this->vue->form_logIn();
+		function form_connexion(){
+			$this->vue->form_connexion();
 		}
 
 		function connexion(){
@@ -29,35 +29,40 @@ if(!defined('CONST_INCLUDE'))
 			$isPasswordCorrect=password_verify($_POST['passwrd'],$tab['passwrd']);
 
 	        if($isPasswordCorrect){
-				$_SESSION['firstName']=$tab['firstName'];
-				$_SESSION['lastName']=$tab['lastName'];
-				$_SESSION['userName']=$tab['userName'];
+				$_SESSION['email']=$tab['email'];
 				$_SESSION['passwrd']=$tab['passwrd'];
 				header('Location:index.php');
 			}	
 			else {
                 echo "<p class=\"text-center mt-3\"><strong>Mauvais identifiant ou mot de passe !</strong></p>";
-                $this->vue->form_logIn();
+                $this->vue->form_connexion();
             }
 		}
 
-		function form_signIn(){
-			$this->vue->form_signIn();
+		function form_inscription(){
+			$this->vue->form_inscription();
 		}
 
 		function inscription(){
-			$this->modele->inscription($this->recupererIdMdpPseudo());
-            header('Location:index.php');
+			$this->modele->inscription($this->recupererIdMdpEmail());
+            header('Location:index.php?module=connexion&action=form_connexion');
 		}
 
-		function recupererIdMdpPseudo(){
+		function recupererIdMdpEmail(){
 			$firstName=$_POST['firstName'];
 			$lastName=$_POST['lastName'];
-			$userName=$_POST['userName'];
+			$email=$_POST['email'];
+			$birthDate=$_POST['birthDate'];
 			$pass_hash=password_hash($_POST['passwrd'],PASSWORD_DEFAULT);
+			$pass_hash_confirm=password_hash($_POST['passwrd_confirm'],PASSWORD_DEFAULT);
 
-			$tab=array('firstName'=>$firstName,'lastName'=>$lastName,'userName'=>$userName,'passwrd'=>$pass_hash);
-			return $tab;
+			if($_POST['passwrd']==$_POST['passwrd_confirm']){	
+				$tab=array('firstName'=>$firstName,'lastName'=>$lastName,'email'=>$email,'passwrd'=>$pass_hash);
+				return $tab;
+			}else {	
+	            header('Location:index.php');
+			}
+
 		}
 
 		function logOut(){

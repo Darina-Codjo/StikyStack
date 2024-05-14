@@ -25,8 +25,9 @@ if(!defined('CONST_INCLUDE'))
 						<div class="description_profil ms-5" style="text-align: center;">
 							<h2>My Account</h2>
 							<p> Firstname : <?php echo $_SESSION['firstName']; ?></p>
-							<p> Firstname : <?php echo $_SESSION['lastName']; ?></p>	
-							<p> User name : <?php echo $_SESSION['userName']; ?></p>
+							<p> Firstname : <?php echo $_SESSION['lastName']; ?></p>
+							<p> BirthDate : <?php echo $_SESSION['birthDate'];?></p>
+							<p> E-mail : <?php echo $_SESSION['email']; ?></p>
 							<br>
 						</div>
 					</div>
