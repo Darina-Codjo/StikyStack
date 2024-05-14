@@ -16,7 +16,7 @@ class VueHeaderAccueil {
     public function afficherNav() { ?>
         <div class="banner">
             <div class="baniere-top">
-                <img src="../StikyStack/images/home_banner.png" class="img-fluid" alt="Responsive image">
+                <img src="./images/home_banner.png" class="img-fluid" alt="Responsive image">
             </div>
         </div>
 
