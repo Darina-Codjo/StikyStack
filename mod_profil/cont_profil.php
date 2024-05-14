@@ -18,6 +18,10 @@ if(!defined('CONST_INCLUDE'))
 		}
 
         function profil_page(){
+			$userInfo = $this->modele->afficher_profil();
+			$_SESSION['firstName'] = $userInfo['firstName'];
+			$_SESSION['lastName'] = $userInfo['lastName'];
+			$_SESSION['birthDate'] = $userInfo['birthDate'];
             $this->vue->profil_page();
         }
 

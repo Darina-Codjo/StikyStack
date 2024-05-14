@@ -36,6 +36,7 @@ if(!defined('CONST_INCLUDE'))
 			</div>
 			<?php
 
+//$userInfo = ['firstName' => 'root', 'lastName' => 'root', 'birthDate' => '0000-00-00', 'email' => 'root.root@gmail.com', 'creationDate' => '2024-05-14 13:34:23.000000'] )
 		}
 		function error404($error){
 			echo $error;

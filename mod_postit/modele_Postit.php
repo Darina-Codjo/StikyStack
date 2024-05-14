@@ -12,6 +12,12 @@ if(!defined('CONST_INCLUDE'))
 		public function __construct() {
 
 		}
+		
+		function displayAllPostit(){
+			$prepare = self::$bdd->prepare("SELECT  FROM note;");
+			$prepare-> execute();
+			return $prepare->fetchAll();
+		}
 
 		function error404(){
             require_once('404NotFoundPage.php');
