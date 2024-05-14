@@ -13,21 +13,14 @@ class VueFooter {
 		return $this->vueFooter;
 	}
 
-	public function afficherFooter() { ?>
-		<footer style="background-color:rgb(37,42,55);">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<h1 class="text-capitalize font-weight-light p-3 " style="color: rgb(244,213,41);"> Suivez-nous!</h1>
-				</div>
+	public function afficherFooter() { 
+		?>
+		<footer style="background-color: rgb(184, 184, 184)">
+			<div class="container">
+				<p class="text-center">Copyright - All write reserved to © Stiky'Stack Inc. 2024</p>
 			</div>
-			<p class="text-center">Copyright - Tous droits réservé à  </p>
-		</div>
-	</footer>
-
-		
-	<?php
-
+		</footer>
+		<?php
 	}
 
 }

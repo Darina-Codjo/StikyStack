@@ -7,7 +7,7 @@
     <!-- ELEMENT DU MILIEU -->
         <br>
         <br>
-        <h1> <?php echo 'Hello World !';?> </h1>
+        <h1> <p> E-mail : <?php /*echo $_SESSION['email']; */?></p> </h1>
         <br>
         <br>
         <br>

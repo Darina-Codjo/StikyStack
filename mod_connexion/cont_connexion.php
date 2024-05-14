@@ -26,14 +26,12 @@ if(!defined('CONST_INCLUDE'))
 
 		function connexion(){
 			$tab=$this->modele->connexion();
-			$isPasswordCorrect=password_verify($_POST['password'],$tab['password']);
+			$isPasswordCorrect=password_verify($_POST['passwrd'],$tab['passwrd']);
 
 	        if($isPasswordCorrect){
-	        		$_SESSION['nomUtilisateur']=$tab['nomUtilisateur'];
-					$_SESSION['password']=$tab['password'];
-                    $_SESSION['email']=$tab['email'];
-                    $_SESSION['role']=$tab['role'];
-                    header('Location:index.php');
+				$_SESSION['email']=$tab['email'];
+				$_SESSION['passwrd']=$tab['passwrd'];
+				header('Location:index.php');
 			}	
 			else {
                 echo "<p class=\"text-center mt-3\"><strong>Mauvais identifiant ou mot de passe !</strong></p>";
@@ -47,26 +45,33 @@ if(!defined('CONST_INCLUDE'))
 
 		function inscription(){
 			$this->modele->inscription($this->recupererIdMdpEmail());
-            header('Location:index.php');
+            header('Location:index.php?module=connexion&action=form_connexion');
 		}
 
 		function recupererIdMdpEmail(){
-
-			$identifiant=$_POST['nomUtilisateur'];
-			$pass_hash=password_hash($_POST['password'],PASSWORD_DEFAULT);
+			$firstName=$_POST['firstName'];
+			$lastName=$_POST['lastName'];
 			$email=$_POST['email'];
+			$birthDate=$_POST['birthDate'];
+			$pass_hash=password_hash($_POST['passwrd'],PASSWORD_DEFAULT);
+			$pass_hash_confirm=password_hash($_POST['passwrd_confirm'],PASSWORD_DEFAULT);
 
-			$tab=array("nomUtilisateur"=>$identifiant, "password" =>$pass_hash,"email"=>$email);
-			return $tab;
+			if($_POST['passwrd']==$_POST['passwrd_confirm']){	
+				$tab=array('firstName'=>$firstName,'lastName'=>$lastName,'email'=>$email,'passwrd'=>$pass_hash);
+				return $tab;
+			}else {	
+	            header('Location:index.php');
+			}
+
 		}
 
-		function deconnexion(){
-			$this->modele->deconnexion();
+		function logOut(){
+			$this->modele->logOut();
 		}
 
-		function erreur404(){
-			$error = $this->modele->erreur404();
-			$this->vue->erreur404($error);
+		function error404(){
+			$error = $this->modele->error404();
+			$this->vue->error404($error);
 		}
 		function getVue(){
 			return $this->vue;

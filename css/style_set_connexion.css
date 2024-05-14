@@ -38,9 +38,10 @@
 }
 
 .navbar-nav .nav-item .nav-link:hover{
-    color: rgb(244,213,41);
+    color: rgb(111, 246, 0);
 }
-/*.container {
+
+.container {
     height:500px;
 }
 
@@ -51,7 +52,8 @@
 .col{
     height:500px;
 
-}*/
+}
+
 footer .container {
     height: 225px;
 }
