@@ -18,7 +18,15 @@ if(!defined('CONST_INCLUDE'))
 		}
 
         function postit_page(){
-            $this->vue->postit_page();
+			$postitInfo = $this->modele->afficher_postit();
+			if(isset($postitInfo)){
+				$_SESSION['idNote'] = $postitInfo['idNote'];
+				$_SESSION['title'] = $postitInfo['title'];
+				$_SESSION['content'] = $postitInfo['lastName'];
+				$_SESSION['noteCreationDate'] = $postitInfo['noteCreationDate'];
+				$_SESSION['updateDate'] = $postitInfo['updateDate'];
+			}
+			$this->vue->postit_page();
         }
 
 		function error404(){

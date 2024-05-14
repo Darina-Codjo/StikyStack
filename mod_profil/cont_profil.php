@@ -19,9 +19,11 @@ if(!defined('CONST_INCLUDE'))
 
         function profil_page(){
 			$userInfo = $this->modele->afficher_profil();
+			$_SESSION['idUser'] = $userInfo['idUser'];
 			$_SESSION['firstName'] = $userInfo['firstName'];
 			$_SESSION['lastName'] = $userInfo['lastName'];
 			$_SESSION['birthDate'] = $userInfo['birthDate'];
+			$_SESSION['creationDate'] = $userInfo['creationDate'];
             $this->vue->profil_page();
         }
 

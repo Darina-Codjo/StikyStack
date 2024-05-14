@@ -14,17 +14,30 @@ if(!defined('CONST_INCLUDE'))
 
 		function postit_page(){
 			?>
-			<h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['firstName']); ?>!</h1>
-			<div class="main-container">	
+			<h1>Bienvenue <?php echo htmlspecialchars($_SESSION['firstName']); ?> !</h1>
 			<div class="post-it-section">
 				<h2>Mes Post-its</h2>
 				<button class="add-button" onclick="openForm()">Ajouter Post-its</button>
 				<div class="post-it-display" id="mesPostIts"></div>
 			</div>
-			<div class="post-it-section" style="background-color: #ffcab0;">
-				<h2>Post-its partagés</h2>
-				<div class="post-it-display" id="postItsPartages"></div>
+				<div class="post-it-section" style="background-color: #ffcab0;">
+					<h2>Post-its partagés</h2>
+					<div class="post-it-display" id="postItsPartages"></div>
+				</div>
 			</div>
+
+			<div class="form-popup" id="detailsForm" style="display:none;">
+				<form class="form-container">
+					<h1>Détails du Post-it</h1>
+					<div>
+						<b>Titre: <?php echo $_SESSION['title']; ?></b> <span id="detail-titre"></span>
+						<b>Contenu: <?php echo $_SESSION['content']; ?></b> <span id="detail-contenu"></span>
+						<b>Date d'ajout: <?php echo $_SESSION['creationDate']; ?></b> <span id="detail-date_ajout"></span>
+						<b>Date de modification:</b> <?php echo $_SESSION['updateDate']; ?><span id="detail-date_modification"></span>
+					</div>
+
+					<button type="button" class="btn cancel" onclick="fermerDetailsForm()">Fermer</button>
+				</form>
 			</div>
 			<br>
 			<br>
@@ -40,14 +53,7 @@ if(!defined('CONST_INCLUDE'))
 			<br>
 			<br>
 			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-
-
+			
 			<div class="form-popup" id="myForm">
 				<form class="form-container" action="submit_postit.php" method="post">
 					<h1>Ajouter Post-it</h1>
@@ -59,14 +65,11 @@ if(!defined('CONST_INCLUDE'))
 						<b>Contenu</b>
 					</label>
 					<textarea placeholder="Écrivez le contenu" name="contenu" required></textarea>
-					<label for="emailInput"><b>E-mail</b></label>
-        			<input type="text" id="emailInput" onkeyup="showSuggestions(this.value)" placeholder="Entrez une adresse e-mail">
-
 					<button type="submit" class="btn">Ajouter</button>
 					<button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
 				</form>
 			</div>
-
+			
 			<!-- JAVASCRIPT -->
 			<script>
 				function openForm() {
@@ -76,7 +79,11 @@ if(!defined('CONST_INCLUDE'))
 					document.getElementById("myForm").style.display = "none";
 				}
 			</script>
+			<?php
+		}
 
+		function edit_postit(){
+			?>
 			<div class="form-popup" id="editForm">
 				<form class="form-container" onsubmit="modifierPostIt(event)">
 					<h1>Modifier Post-Its</h1>
@@ -104,18 +111,35 @@ if(!defined('CONST_INCLUDE'))
 					<button type="button" class="btn cancel" onclick="closeEditForm()">Fermer</button>
 				</form>
 			</div>
-		<div class="form-popup" id="detailsForm" style="display:none;">
-    		<form class="form-container" onsubmit="modifierPostIt(event)">
-       		<h1>Détails du Post-it</h1>
-			<div><b>Titre:</b> <span id="detail-titre"></span></div>
-        	<div><b>email:</b> <span id="detail-email"></span></div>
-        	<div><b>Contenu:</b> <span id="detail-contenu"></span></div>
-        	<div><b>Date d'ajout:</b> <span id="detail-date_ajout"></span></div>
-        	<div><b>Date de modification:</b> <span id="detail-date_modification"></span></div>
 
-        <button type="button" class="btn cancel" onclick="fermerDetailsForm()">Fermer</button>
-    </form>
-</div>
+			<div class="form-popup" id="editForm">
+				<form class="form-container" onsubmit="modifierPostIt(event)">
+					<h1>Modifier Post-Its</h1>
+
+					<label for="edit-titre">
+						<b>Titre</b></label>
+					<input type="text" id="edit-titre" name="edit-titre" required maxlength="50">
+
+					<label for="edit-contenu">
+						<b>Contenu</b>
+					</label>
+					<textarea id="edit-contenu" name="edit-contenu" required maxlength="150"></textarea>
+
+					<div>
+						Date d'ajout: 
+						<span id="edit-date_ajout"></span>
+					</div>
+					<div>
+						Date de modification: 
+						<span id="edit-date_modification"></span>
+					</div>
+
+					<input type="hidden" id="edit-id" name="edit-id">
+
+					<button type="submit" class="btn">Modifier</button>
+					<button type="button" class="btn cancel" onclick="closeEditForm()">Fermer</button>
+				</form>
+			</div>
 
 			<script>
 				function openEditForm() {

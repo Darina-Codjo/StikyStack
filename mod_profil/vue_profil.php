@@ -7,7 +7,6 @@ if(!defined('CONST_INCLUDE'))
 	include_once'vue_generique.php';
 	
 	class VueProfil extends VueGenerique {
-
 		public function __construct() {
 			parent::__construct();
 		}
@@ -25,18 +24,17 @@ if(!defined('CONST_INCLUDE'))
 					<div class="info ">
 						<div class="description_profil ms-5" style="text-align: center;">
 							<h2>My Account</h2>
-							<p> Firstname : <?php echo $_SESSION['firstName']; ?></p>
-							<p> Firstname : <?php echo $_SESSION['lastName']; ?></p>
-							<p> BirthDate : <?php echo $_SESSION['birthDate'];?></p>
+							<p> Prénom : <?php echo $_SESSION['firstName']; ?></p>
+							<p> Nom : <?php echo $_SESSION['lastName']; ?></p>
+							<p> Date de naissance : <?php echo $_SESSION['birthDate'];?></p>
 							<p> E-mail : <?php echo $_SESSION['email']; ?></p>
+							<p> Date de création du compte : <?php echo $_SESSION['creationDate']; ?></p>
 							<br>
 						</div>
 					</div>
 				</div>
 			</div>
 			<?php
-
-//$userInfo = ['firstName' => 'root', 'lastName' => 'root', 'birthDate' => '0000-00-00', 'email' => 'root.root@gmail.com', 'creationDate' => '2024-05-14 13:34:23.000000'] )
 		}
 		function error404($error){
 			echo $error;
