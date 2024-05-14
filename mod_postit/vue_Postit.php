@@ -26,6 +26,27 @@ if(!defined('CONST_INCLUDE'))
 				<div class="post-it-display" id="postItsPartages"></div>
 			</div>
 			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
 
 			<div class="form-popup" id="myForm">
 				<form class="form-container" action="submit_postit.php" method="post">
