@@ -57,7 +57,7 @@ if(!defined('CONST_INCLUDE'))
 					            <input type="text" name="lastName" class="form-control" placeholder="Lastname">
 							</div>
 							<div class="form-group">
-					            <input type="date" name="birthDate" class="form-control" placeholder="BirthDate">
+					            <input type="text" name="birthDate" class="form-control" placeholder="BirthDate">
 							</div>
 							<div class="form-group">
 					            <input type="text" name="email" class="form-control" placeholder="E-mail">
@@ -68,6 +68,8 @@ if(!defined('CONST_INCLUDE'))
 							 <div class="form-group">
 				             	<input type="text" name="passwrd_confirm" class="form-control" placeholder="Confirm password">
 				         	</div>
+							 <div id="errorMessages" style="color: red;">
+							</div>
 				         	<br>
 				          	<button type="submit" class="btn btn-black" style="background-color: #f4d529;color: #252a37; border: solid;">Sign in</button>
 				          	<br>

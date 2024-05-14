@@ -85,10 +85,19 @@ document.addEventListener("DOMContentLoaded", function() {
         var password = form.querySelector('[name="passwrd"]').value;
         var confirmPassword = form.querySelector('[name="passwrd_confirm"]').value;
 
-        // Vérification que tous les champs sont remplis
+    
         if (!firstName || !lastName || !birthDate || !email || !password || !confirmPassword) {
-            errorMessages.push("tous les champs soivent etre saisis.");
+            errorMessages.push("tous les champs soivent etre saisis ! ");
             isValid = false;
+        }
+
+        // Vérif de la date de naissance
+        if (!birthDate.match(/^\d{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/)) {
+            errorMessages.push("La date de naissance doit être au format AAAAMMJJ !");
+            form.querySelector('[name="birthDate"]').style.backgroundColor = "red";
+            isValid = false;
+        } else {
+            form.querySelector('[name="birthDate"]').style.backgroundColor = "";
         }
 
         // Validation de l'email
@@ -110,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
             form.querySelector('[name="passwrd"]').style.backgroundColor = "";
             form.querySelector('[name="passwrd_confirm"]').style.backgroundColor = "";
             if (password.length < 6) {
-                errorMessages.push("Le mot de passe doit contenir plus de 6 caractères.");
+                errorMessages.push("Le mot de passe doit contenir plus de 6 caractères !");
                 form.querySelector('[name="passwrd"]').style.backgroundColor = "red";
                 isValid = false;
             }

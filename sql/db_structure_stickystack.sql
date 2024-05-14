@@ -20,7 +20,7 @@ CREATE TABLE `user` (
   `lastName` varchar(100) NOT NULL,
   `userName` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `birthDate` datetime(6) NOT NULL,
+  `birthDate`  varchar(8) NOT NULL,
   `creationDate` datetime(6) NOT NULL,
   `updateDate` datetime(6) NOT NULL,
   `passwrd` varchar(100) NOT NULL
