@@ -25,7 +25,7 @@ class VueNav {
                     ?>                        
                     <ul class="navbar-nav ml-md-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?module=profil&action=postit_page">My Post'it</a>
+                            <a class="nav-link" href="index.php?module=postit&action=postit_page">My Post'it</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?module=profil&action=profil_page">My Account</a>

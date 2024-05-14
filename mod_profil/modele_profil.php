@@ -13,6 +13,18 @@ if(!defined('CONST_INCLUDE'))
 
 		}
 
+		function afficher_profil(){
+			if(isset($_SESSION['email'])){
+				$email = $_SESSION['email'];
+				$prepare = self::$bdd->prepare("SELECT firstName,lastName,birthDate,email,creationDate FROM user where email = ?;");
+				$prepare->execute(array($email));
+				return $prepare->fetch(PDO::FETCH_ASSOC);
+			}
+			
+		
+		}
+
+
 		function error404(){
             require_once('404NotFoundPage.php');
         }
