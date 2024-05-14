@@ -23,7 +23,7 @@ CREATE TABLE `user` (
   `birthDate` datetime(6) NOT NULL,
   `creationDate` datetime(6) NOT NULL,
   `updateDate` datetime(6) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `passwrd` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
