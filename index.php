@@ -54,6 +54,9 @@ define('CONST_INCLUDE', NULL);
             include "./comp_footer/comp_footer.php";
             $footer = new ComposantFooter();
             break;
+        
+        case "404":
+            $title
 
             default :
                 die ("Interdiction d'accès à ce module");

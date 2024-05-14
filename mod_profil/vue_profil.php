@@ -15,12 +15,12 @@ if(!defined('CONST_INCLUDE'))
 		function profil_page(){?>
 			<div class="container" >
 				<div class="card" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: #252a37; padding: 50px; text-align: center; color: white; border-radius: 30px;">
-					<div class="pp">
+					<!-- <div class="pp">
 						<div class="circle"><img src="./images/ajoutez_pp.png" id="photo" ></div>
 					</div>
 					<div class="upload">
 						<input type="file" id="file">
-					</div>
+					</div> -->
 					<div class="info ">
 						<div class="description_profil ms-5" style="text-align: center;">
 							<h2>My Account</h2>

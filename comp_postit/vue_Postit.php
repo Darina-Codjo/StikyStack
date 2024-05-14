@@ -13,7 +13,7 @@ if(!defined('CONST_INCLUDE'))
 		}
 
 		function postit_page(){?>
-			<! -- HTML --> 
+			<!-- <! -- HTML -->  -->
 			
             <?php
 
