@@ -60,13 +60,13 @@ if(!defined('CONST_INCLUDE'))
 					            <input type="date" name="birthDate" class="form-control" placeholder="BirthDate">
 							</div>
 							<div class="form-group">
-					            <input type="email" name="email" class="form-control" placeholder="E-mail">
+					            <input type="text" name="email" class="form-control" placeholder="E-mail">
 					        </div>
 				          	<div class="form-group">
-				             	<input type="password" name="passwrd" class="form-control" placeholder="Password">
+				             	<input type="text" name="passwrd" class="form-control" placeholder="Password">
 				         	</div>
 							 <div class="form-group">
-				             	<input type="password" name="passwrd_confirm" class="form-control" placeholder="Confirm password">
+				             	<input type="text" name="passwrd_confirm" class="form-control" placeholder="Confirm password">
 				         	</div>
 				         	<br>
 				          	<button type="submit" class="btn btn-black" style="background-color: #f4d529;color: #252a37; border: solid;">Sign in</button>
