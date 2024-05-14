@@ -31,7 +31,6 @@ if(!defined('CONST_INCLUDE'))
 				case "connexion":
 					if(isset($_SESSION['email'])){
 						//<!-- connection_status -->
-
 						echo "Vous etes déjà connecté";
                         header('Location:index.php');
 					}

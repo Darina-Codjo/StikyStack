@@ -55,11 +55,11 @@ define('CONST_INCLUDE', NULL);
             $footer = new ComposantFooter();
             break;
         
-        case "404":
-            $title
+        // case "404":
+        //     $title
 
-            default :
-                die ("Interdiction d'accès à ce module");
+        default :
+            die ("Interdiction d'accès à ce module");
 
                 
     }

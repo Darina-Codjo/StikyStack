@@ -46,12 +46,11 @@ if(!defined('CONST_INCLUDE'))
 
         function connexion(){
             $email = $_POST['email'];
-            //echo $_POST['email'];
             try {
-                $selectprep = self::$bdd->prepare("SELECT email, passwrd FROM user WHERE email=?;");
-                //echo "SELECT email, passwrd FROM user WHERE email=?;";
-                $selectprep->execute(array($email));
+                $selectprep = self::$bdd->prepare("SELECT email,passwrd,firstName,lastName,birthDate FROM user WHERE email=?;");
+                $selectprep->execute(array($email,$firstName,$lastName,$birthDate));
                 $resultat = $selectprep->fetch();
+                
                 return $resultat;
             } catch (PDOexception $e) {
                 echo $e->getMessage() . $e->getCode();

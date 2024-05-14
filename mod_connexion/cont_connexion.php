@@ -1,6 +1,7 @@
 <?php
-if(!defined('CONST_INCLUDE'))
-    die('Acces direct interdit !');
+	//session_start();
+	if(!defined('CONST_INCLUDE'))
+		die('Acces direct interdit !');
 ?>
 
 <?php
