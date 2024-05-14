@@ -5,7 +5,6 @@ if(!defined('CONST_INCLUDE'))
 
 <?php
 
-	
 	include_once'vue_generique.php';
 	
 	class VueConnexion extends VueGenerique {
@@ -18,23 +17,21 @@ if(!defined('CONST_INCLUDE'))
 			?>
             <div class="container">
                 <div class="row">
-					<form action="index.php?module=connexion&action=connexion" method="post"  class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: #252a37; padding: 50px; text-align: center; color: white; border-radius: 30px;">
-					    <h2>Connectez-vous !</h2>
-			    		<br>
-			    		<div class="col-lg-8 me-auto mx-auto">
-					        <div class="form-group">
-					            <label>Nom d'utilisateur</label>
-					            <input type="text" name="nomUtilisateur" class="form-control" placeholder="Pseudo">
-					        </div>
-					        <br>
-				          	<div class="form-group">
-				             	<label>Mot de passe</label>
-				             	<input type="password" name="password" class="form-control" placeholder="Mot de passe">
-				         	</div>
-				         	<br>
-				          	<button type="submit" class="btn btn-black" style="background-color: #f4d529;color: #252a37; border: solid;">Login</button>
-				          	<br>
-				          </div>
+				<form action="index.php?module=connexion&action=connexion" method="post" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: rgb(109,109,109); padding: 50px; text-align: center; color: white; border-radius: 30px;">					    
+					<h2>Log In</h2>
+					<br>
+					<div class="col-lg-8 me-auto mx-auto">
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="E-mail">
+						</div>
+						<br>
+						<div class="form-group">
+							<input type="password" name="passwrd" class="form-control" placeholder="Password">
+						</div>
+						<br>
+						<button type="submit" class="btn btn-black" style="background-color: #f4d529;color: #252a37; border: solid;">Login</button>
+						<br>
+						</div>
     				</form>
 			    </div>
 			</div>
@@ -49,23 +46,27 @@ if(!defined('CONST_INCLUDE'))
 			?>
 			<div class="container">
 				<div class="row">
-					<form action="index.php?module=connexion&action=inscription" method="post" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: #252a37; padding: 50px; text-align: center; color: white; border-radius: 30px;">
-			    		<h2>Inscrivez-vous !</h2>
+					<form action="index.php?module=connexion&action=inscription" method="post" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: rgb(109,109,109); padding: 50px; text-align: center; color: white; border-radius: 30px;">
+			    		<h2>Sign Up</h2>
 			    		<br>
 			    		<div class="col-lg-8 me-auto mx-auto">
-					        <div class="form-group">
-					            <label>Nom d'utilisateur</label>
-					            <input type="text" name="nomUtilisateur" class="form-control" placeholder="Pseudo">
+							<div class="form-group">
+					            <input type="text" name="firstName" class="form-control" placeholder="Firstname">
 					        </div>
-					        <br>
-					        <div class="form-group">
-					        	<label>Adresse Mail</label>
-					        	<input type="email" name="email" class="form-control" placeholder="E-mail">
+							<div class="form-group">
+					            <input type="text" name="lastName" class="form-control" placeholder="Lastname">
+							</div>
+							<div class="form-group">
+					            <input type="date" name="birthDate" class="form-control" placeholder="BirthDate">
+							</div>
+							<div class="form-group">
+					            <input type="email" name="email" class="form-control" placeholder="E-mail">
 					        </div>
-					        <br>
 				          	<div class="form-group">
-				             	<label>Mot de passe</label>
-				             	<input type="password" name="password" class="form-control" placeholder="Mot de passe">
+				             	<input type="password" name="passwrd" class="form-control" placeholder="Password">
+				         	</div>
+							 <div class="form-group">
+				             	<input type="password" name="passwrd_confirm" class="form-control" placeholder="Confirm password">
 				         	</div>
 				         	<br>
 				          	<button type="submit" class="btn btn-black" style="background-color: #f4d529;color: #252a37; border: solid;">Sign in</button>
@@ -78,10 +79,14 @@ if(!defined('CONST_INCLUDE'))
 	    	<br>
 	    	<br>
 	    	<br>
+			<br>
+	    	<br>
+	    	<br>
+	    	<br>
 			<?php
 		}
 
-		function erreur404($error){
+		function error404($error){
 			echo $error;
 		}
 	}

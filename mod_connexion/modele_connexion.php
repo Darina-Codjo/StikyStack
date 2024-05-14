@@ -5,7 +5,7 @@ if(!defined('CONST_INCLUDE'))
 
 <?php
 
-    include_once'connexion.php';
+    include_once'connexionDB.php';
     include_once'vue_connexion.php';
 
 	class ModeleConnexion extends Connexion{
@@ -16,41 +16,41 @@ if(!defined('CONST_INCLUDE'))
         }
 
         function inscription($tab){
-
-            $id=$tab['nomUtilisateur'];
-            $password=$tab['password'];
+            $firstName=$tab['firstName'];
+            $lastName=$tab['lastName'];
+            $birthDate=$tab['birthDate'];
             $email=$tab['email'];
-            $role=0;
+            $passwrd=$tab['passwrd'];
 
-
-
-            if(strlen($id) <= 255 && strlen($password) <= 255 && filter_var($email, FILTER_VALIDATE_EMAIL) != false ) {
-
-                $requete=self::$bdd->prepare("SELECT nomUtilisateur FROM membre where nomUtilisateur=? ;");
-                $requete->execute(array($id));
+            if(strlen($email) <= 255 && strlen($firstName) <= 255 && strlen($lastName) <= 255 && strlen($passwrd) <= 255) {
+                
+                $requete=self::$bdd->prepare("SELECT email FROM user where email=? ;");
+                $requete->execute(array($email));
 
                 if(!empty($requete->fetch())){
-                    echo "<p class=\"text-center mt-3\"><strong>Cet utilisateur existe déjà</strong></p>";
+                    echo "<p class=\"text-center mt-3\"><strong>This user already exists</strong></p>";
                     $this->vue->form_inscription();
                 }
                 else{
                     //Insertion
-                    $req=self::$bdd->prepare("INSERT INTO membre(nomUtilisateur,password,email,role) VALUES(?,?,?,?); ");
-                    $req->execute(array($id,$password,$email,$role));
+                    $req=self::$bdd->prepare("INSERT INTO user(firstName,lastName,birthDate,email,passwrd) VALUES(?,?,?,?,?);");
+                    $req->execute(array($firstName,$lastName,$birthDate,$email,$passwrd));
+                    
                 }
             }
             else {
-                echo "<p class=\"text-center mt-3\"><strong>Pseudo trop grand ou de mot de passe incorrecte ou email invalide</strong></p>";
+                echo "<p class=\"text-center mt-3\"><strong>User name too long <strong></p>";
                 $this->vue->form_inscription();
             }
         }
 
         function connexion(){
-            $nomUtilisateur = $_POST['nomUtilisateur'];
-
+            $email = $_POST['email'];
+            //echo $_POST['email'];
             try {
-                $selectprep = self::$bdd->prepare("SELECT nomUtilisateur,password,email,role FROM membre WHERE nomUtilisateur=?;");
-                $selectprep->execute(array($nomUtilisateur));
+                $selectprep = self::$bdd->prepare("SELECT email, passwrd FROM user WHERE email=?;");
+                //echo "SELECT email, passwrd FROM user WHERE email=?;";
+                $selectprep->execute(array($email));
                 $resultat = $selectprep->fetch();
                 return $resultat;
             } catch (PDOexception $e) {
@@ -58,17 +58,14 @@ if(!defined('CONST_INCLUDE'))
             }
         }
 
-        function deconnexion(){
+        function logOut(){
             $_SESSION = array();
             session_destroy();
             header('Location:index.php');
         }
 
-        function erreur404(){
-            $error = self::$bdd->prepare("SELECT contenu FROM page WHERE titre_page = 'erreur404';");
-            $error->execute();
-            $error = $error->fetch()['contenu'];
-            return $error;
+        function error404(){
+            require_once('404NotFoundPage.php');
         }
     }
 ?>
