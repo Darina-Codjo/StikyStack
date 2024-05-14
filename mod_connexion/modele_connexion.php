@@ -72,65 +72,82 @@ if(!defined('CONST_INCLUDE'))
 ?>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var form = document.querySelector('form[action="index.php?module=connexion&action=inscription"]');
+    let form = document.querySelector('form[action="index.php?module=connexion&action=inscription"]');
 
     form.addEventListener("submit", function(event) {
-        var isValid = true;
-        var errorMessages = [];
+        let isValid = true;
 
-        var firstName = form.querySelector('[name="firstName"]').value.trim();
-        var lastName = form.querySelector('[name="lastName"]').value.trim();
-        var birthDate = form.querySelector('[name="birthDate"]').value.trim();
-        var email = form.querySelector('[name="email"]').value.trim();
-        var password = form.querySelector('[name="passwrd"]').value;
-        var confirmPassword = form.querySelector('[name="passwrd_confirm"]').value;
+        // Effacer les erreurs précédentes
+        document.querySelectorAll('.error-messages').forEach(function(div) {
+            div.innerHTML = '';
+        });
 
-    
-        if (!firstName || !lastName || !birthDate || !email || !password || !confirmPassword) {
-            errorMessages.push("tous les champs soivent etre saisis ! ");
+        let firstName = form.querySelector('[name="firstName"]').value.trim();
+        if (!firstName) {
+            document.getElementById('errorFirstName').innerHTML = "Le prénom est requis.";
             isValid = false;
         }
 
-        // Vérif de la date de naissance
-        if (!birthDate.match(/^\d{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/)) {
-            errorMessages.push("La date de naissance doit être au format AAAAMMJJ !");
+        let lastName = form.querySelector('[name="lastName"]').value.trim();
+        if (!lastName) {
+            document.getElementById('errorLastName').innerHTML = "Le nom de famille est requis.";
+            isValid = false;
+        }
+
+        let birthDate = form.querySelector('[name="birthDate"]').value.trim();
+        if (!birthDate) {
+            document.getElementById('errorBirthDate').innerHTML = "La date de naissance est requise.";
             form.querySelector('[name="birthDate"]').style.backgroundColor = "red";
+            isValid = false;
+        } else if (!birthDate.match(/^\d{4}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/)) {
+            document.getElementById('errorBirthDate').innerHTML = "La date de naissance doit être au format AAAAMMJJ.";
             isValid = false;
         } else {
             form.querySelector('[name="birthDate"]').style.backgroundColor = "";
         }
 
-        // Validation de l'email
-        if (!email.match(/^\S+@\S+\.\S+$/)) {
-            errorMessages.push("L'email saisi n'est pas valide.");
+        let email = form.querySelector('[name="email"]').value.trim();
+        if (!email) {
+            document.getElementById('errorEmail').innerHTML = "L'email est requis.";
             form.querySelector('[name="email"]').style.backgroundColor = "red";
+            isValid = false;
+        } else if (!email.match(/^\S+@\S+\.\S+$/)) {
+            document.getElementById('errorEmail').innerHTML = "L'email saisi n'est pas valide.";
             isValid = false;
         } else {
             form.querySelector('[name="email"]').style.backgroundColor = "";
         }
 
-        // Vérification des mdp :
-        if (password !== confirmPassword) {
-            errorMessages.push("les deux mots de passe ne se correspondent pas !.");
+        let password = form.querySelector('[name="passwrd"]').value;
+        if (!password) {
+            document.getElementById('errorPasswrd').innerHTML = "Le mot de passe est requis.";
+            isValid = false;
+        } else if (password.length < 6) {
+            document.getElementById('errorPasswrd').innerHTML = "Le mot de passe doit contenir au moins 6 caractères.";
+            form.querySelector('[name="passwrd"]').style.backgroundColor = "red";
+            isValid = false;
+        } else {
+            form.querySelector('[name="passwrd"]').style.backgroundColor = "";
+        }
+
+        let confirmPassword = form.querySelector('[name="passwrd_confirm"]').value;
+        if (!confirmPassword) {
+            document.getElementById('errorPasswrd_confirm').innerHTML = "La confirmation du mot de passe est requise.";
+            isValid = false;
+        } else if (password !== confirmPassword) {
+            document.getElementById('errorPasswrd_confirm').innerHTML = "Les mots de passe ne correspondent pas.";
             form.querySelector('[name="passwrd"]').style.backgroundColor = "red";
             form.querySelector('[name="passwrd_confirm"]').style.backgroundColor = "red";
             isValid = false;
         } else {
-            form.querySelector('[name="passwrd"]').style.backgroundColor = "";
             form.querySelector('[name="passwrd_confirm"]').style.backgroundColor = "";
-            if (password.length < 6) {
-                errorMessages.push("Le mot de passe doit contenir plus de 6 caractères !");
-                form.querySelector('[name="passwrd"]').style.backgroundColor = "red";
-                isValid = false;
-            }
         }
 
-        // Si le formulaire n'est pas valide, afficher les erreurs
         if (!isValid) {
-            event.preventDefault();
-            alert(errorMessages.join("\n"));
+            event.preventDefault(); // Empêcher l'envoi du formulaire
         }
     });
 });
 </script>
+
 

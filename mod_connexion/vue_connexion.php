@@ -52,21 +52,28 @@ if(!defined('CONST_INCLUDE'))
 			    		<div class="col-lg-8 me-auto mx-auto">
 							<div class="form-group">
 					            <input type="text" name="firstName" class="form-control" placeholder="Firstname">
+								<div id="errorFirstName" class="error-messages" style="color: red;"></div>
 					        </div>
 							<div class="form-group">
 					            <input type="text" name="lastName" class="form-control" placeholder="Lastname">
+								<div id="errorLastName" class="error-messages" style="color: red;"></div>
 							</div>
 							<div class="form-group">
 					            <input type="text" name="birthDate" class="form-control" placeholder="BirthDate">
+								<div id="errorBirthDate" class="error-messages" style="color: red;"></div>
 							</div>
 							<div class="form-group">
 					            <input type="text" name="email" class="form-control" placeholder="E-mail">
+								<div id="errorEmail" class="error-messages" style="color: red;"></div>
+								
 					        </div>
 				          	<div class="form-group">
 				             	<input type="text" name="passwrd" class="form-control" placeholder="Password">
+								<div id="errorPasswrd" class="error-messages" style="color: red;"></div>
 				         	</div>
 							 <div class="form-group">
 				             	<input type="text" name="passwrd_confirm" class="form-control" placeholder="Confirm password">
+								<div id="errorPasswrd_confirm" class="error-messages" style="color: red;"></div>
 				         	</div>
 							 <div id="errorMessages" style="color: red;">
 							</div>
