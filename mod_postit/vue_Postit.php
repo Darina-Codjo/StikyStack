@@ -59,6 +59,9 @@ if(!defined('CONST_INCLUDE'))
 						<b>Contenu</b>
 					</label>
 					<textarea placeholder="Écrivez le contenu" name="contenu" required></textarea>
+					<label for="emailInput"><b>E-mail</b></label>
+        			<input type="text" id="emailInput" onkeyup="showSuggestions(this.value)" placeholder="Entrez une adresse e-mail">
+
 					<button type="submit" class="btn">Ajouter</button>
 					<button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
 				</form>
@@ -101,7 +104,18 @@ if(!defined('CONST_INCLUDE'))
 					<button type="button" class="btn cancel" onclick="closeEditForm()">Fermer</button>
 				</form>
 			</div>
+		<div class="form-popup" id="detailsForm" style="display:none;">
+    		<form class="form-container" onsubmit="modifierPostIt(event)">
+       		<h1>Détails du Post-it</h1>
+			<div><b>Titre:</b> <span id="detail-titre"></span></div>
+        	<div><b>email:</b> <span id="detail-email"></span></div>
+        	<div><b>Contenu:</b> <span id="detail-contenu"></span></div>
+        	<div><b>Date d'ajout:</b> <span id="detail-date_ajout"></span></div>
+        	<div><b>Date de modification:</b> <span id="detail-date_modification"></span></div>
 
+        <button type="button" class="btn cancel" onclick="fermerDetailsForm()">Fermer</button>
+    </form>
+</div>
 
 			<script>
 				function openEditForm() {
