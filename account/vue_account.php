@@ -1,17 +1,3 @@
-//Couche de présentation de l'application. Elle est responsable de l'affichage des données à l'utilisateur final.
-/*
- TABLE USER :
- idUser
-firstName
-lastName
-userName
-email
-birthDate
-creationDate
-updateDate
-password
- */
-
 <!-- view/account_settings.php -->
 
 <!DOCTYPE html>
@@ -22,6 +8,13 @@ password
     <title>Account Settings</title>
 </head>
 <body>
+
+function profil_page(){?>
+    <div class="container" >
+        <div class="card" class="col-lg-8 me-auto mx-auto" style="margin-top: 100px; background-color: #252a37; padding: 50px; text-align: center; color: white; border-radius: 30px;">
+            <div class="pp">
+    
+    
     <h1>Account Settings</h1>
     <?php if (isset($_GET['success'])) : ?>
         <p style="color: green;">Your account settings have been updated successfully.</p>
